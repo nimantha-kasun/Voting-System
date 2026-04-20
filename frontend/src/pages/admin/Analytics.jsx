@@ -25,7 +25,7 @@ const Analytics = () => {
                 setStats({
                     totalPolls: res.data.length,
                     totalVotes,
-                    pollData: detailedPolls.filter(p => p.value > 0) // Votes තියෙන ඒව විතරක් chart එකට ගමු
+                    pollData: detailedPolls.filter(p => p.value > 0)
                 });
             } catch (err) {
                 console.error(err);

@@ -51,7 +51,7 @@ exports.getPollDetails = async (req, res) => {
 exports.togglePollStatus = async (req, res) => {
     try {
         const { id } = req.params;
-        const { status } = req.body; // 'Open' හෝ 'Closed'
+        const { status } = req.body;
 
         const poll = await Poll.findByIdAndUpdate(
             id, 
@@ -73,7 +73,6 @@ exports.getPollDetails = async (req, res) => {
         const poll = await Poll.findById(req.params.id);
         const options = await Option.find({ poll_id: req.params.id });
         
-        // දැනට ලොග් වෙලා ඉන්න User ගේ Vote එක හොයනවා
         const userVote = await Vote.findOne({ 
             user_id: req.user.id, 
             poll_id: req.params.id 
@@ -82,7 +81,6 @@ exports.getPollDetails = async (req, res) => {
         res.json({ 
             poll, 
             options, 
-            // මෙන්න මේ data එක Frontend එකට අත්‍යවශ්‍යයි highlight කරන්න
             userVotedOption: userVote ? userVote.option_id : null 
         });
     } catch (err) {

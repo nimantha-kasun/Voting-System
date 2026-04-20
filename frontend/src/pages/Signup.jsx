@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { UserPlus, Mail, Lock, User, Loader2, Sparkles } from 'lucide-react';
 
 const Signup = () => {
-    // Default role එක Student විදිහට hardcode කරලා තියෙන්නේ
     const [formData, setFormData] = useState({ name: '', email: '', password: '', role: 'Student' });
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
